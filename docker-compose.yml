@@ -1,0 +1,15 @@
+version: '3'
+services:
+  pythonapi:
+    build: .
+    working_dir: /app
+    ports:
+      - "8000:8000"
+    environment: 
+      - MODE=dev
+      - TOKEN_SECRET_KEY=secret_jwt_enconding_key
+      - TOKEN_ALGORITHM=HS256
+      - TOKEN_EXPIRE_MINUTES=60
+      - REFRESH_TOKEN_EXPIRE_MINUTES=43200
+    volumes:
+      - ./:/app
